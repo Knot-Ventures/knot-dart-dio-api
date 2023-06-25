@@ -20,7 +20,9 @@ class CreateProductDto {
 
     required  this.uuid,
 
-    required  this.qrUuid,
+     this.qrUuid,
+
+    required  this.forKnot,
 
     required  this.type,
   });
@@ -40,12 +42,24 @@ class CreateProductDto {
   @JsonKey(
     
     name: r'qrUuid',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? qrUuid;
+
+
+
+  @JsonKey(
+    
+    name: r'forKnot',
     required: true,
     includeIfNull: false
   )
 
 
-  final String qrUuid;
+  final bool forKnot;
 
 
 
@@ -65,12 +79,14 @@ class CreateProductDto {
   bool operator ==(Object other) => identical(this, other) || other is CreateProductDto &&
      other.uuid == uuid &&
      other.qrUuid == qrUuid &&
+     other.forKnot == forKnot &&
      other.type == type;
 
   @override
   int get hashCode =>
     uuid.hashCode +
     qrUuid.hashCode +
+    forKnot.hashCode +
     type.hashCode;
 
   factory CreateProductDto.fromJson(Map<String, dynamic> json) => _$CreateProductDtoFromJson(json);
@@ -92,6 +108,8 @@ enum CreateProductDtoTypeEnum {
   STICKER,
   @JsonValue(r'KEYCHAIN')
   KEYCHAIN,
+  @JsonValue(r'EXTERNAL')
+  EXTERNAL,
 }
 
 

@@ -50,9 +50,9 @@ import 'package:knotapi/knotapi.dart';
 final api = Knotapi().getDefaultApi();
 
 try {
-    api.root();
+    api.addNewProduct();
 } catch on DioError (e) {
-    print("Exception when calling DefaultApi->root: $e\n");
+    print("Exception when calling DefaultApi->addNewProduct: $e\n");
 }
 
 ```
@@ -63,7 +63,33 @@ All URIs are relative to *http://localhost:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*DefaultApi*](doc/DefaultApi.md) | [**root**](doc/DefaultApi.md#root) | **GET** / | 
+[*DefaultApi*](doc/DefaultApi.md) | [**addNewProduct**](doc/DefaultApi.md#addnewproduct) | **POST** /kham/products | 
+[*DefaultApi*](doc/DefaultApi.md) | [**addProduct**](doc/DefaultApi.md#addproduct) | **GET** /add-product | 
+[*DefaultApi*](doc/DefaultApi.md) | [**authorize**](doc/DefaultApi.md#authorize) | **POST** /kham/login | 
+[*DefaultApi*](doc/DefaultApi.md) | [**callFactory**](doc/DefaultApi.md#callfactory) | **POST** /kham/form | 
+[*DefaultApi*](doc/DefaultApi.md) | [**editProduct**](doc/DefaultApi.md#editproduct) | **GET** /edit-product | 
+[*DefaultApi*](doc/DefaultApi.md) | [**editProduct_0**](doc/DefaultApi.md#editproduct_0) | **PUT** /kham/products | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getAllProducts**](doc/DefaultApi.md#getallproducts) | **GET** /view-products | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**confirmPayment**](doc/DistributorsApi.md#confirmpayment) | **POST** /distributors/confirm-payment | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**confirmPaymentWebhook**](doc/DistributorsApi.md#confirmpaymentwebhook) | **POST** /distributors/confirm-payment-webhook | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**create**](doc/DistributorsApi.md#create) | **POST** /distributors | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**findAll**](doc/DistributorsApi.md#findall) | **GET** /distributors | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**findAllProductsByAllDistributors**](doc/DistributorsApi.md#findallproductsbyalldistributors) | **GET** /distributors/products | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**findOne**](doc/DistributorsApi.md#findone) | **GET** /distributors/{id} | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**generateQrForExistingProduct**](doc/DistributorsApi.md#generateqrforexistingproduct) | **POST** /distributors/{id}/products/{productSerial}/qr | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**generateQrForExternalProduct**](doc/DistributorsApi.md#generateqrforexternalproduct) | **POST** /distributors/{id}/products/external | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**getGeneratedProducts**](doc/DistributorsApi.md#getgeneratedproducts) | **GET** /distributors/{id}/products | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**getMe**](doc/DistributorsApi.md#getme) | **GET** /distributors/me | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**payProduct**](doc/DistributorsApi.md#payproduct) | **POST** /distributors/{id}/products/{productId}/pay | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**renewSubscription**](doc/DistributorsApi.md#renewsubscription) | **POST** /distributors/{id}/subscription/renew | 
+[*DistributorsApi*](doc/DistributorsApi.md) | [**update**](doc/DistributorsApi.md#update) | **PATCH** /distributors/{id} | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**create**](doc/EnterprisesApi.md#create) | **POST** /enterprises | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**createProfile**](doc/EnterprisesApi.md#createprofile) | **POST** /enterprises/{eid}/employees | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**findAll**](doc/EnterprisesApi.md#findall) | **GET** /enterprises | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**findOne**](doc/EnterprisesApi.md#findone) | **GET** /enterprises/{id} | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**remove**](doc/EnterprisesApi.md#remove) | **DELETE** /enterprises/{id} | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**unlinkEmployee**](doc/EnterprisesApi.md#unlinkemployee) | **PATCH** /enterprises/{id}/employees/{employeeId}/unlink | 
+[*EnterprisesApi*](doc/EnterprisesApi.md) | [**update**](doc/EnterprisesApi.md#update) | **PATCH** /enterprises/{id} | 
 [*EventsApi*](doc/EventsApi.md) | [**create**](doc/EventsApi.md#create) | **POST** /events | 
 [*EventsApi*](doc/EventsApi.md) | [**findAll**](doc/EventsApi.md#findall) | **GET** /events | 
 [*EventsApi*](doc/EventsApi.md) | [**findAllFiltered**](doc/EventsApi.md#findallfiltered) | **POST** /events/query | 
@@ -132,11 +158,11 @@ Class | Method | HTTP request | Description
 [*UsersApi*](doc/UsersApi.md) | [**findOneByFirebaseUid**](doc/UsersApi.md#findonebyfirebaseuid) | **GET** /users/fireUID/{id} | 
 [*UsersApi*](doc/UsersApi.md) | [**findOneByUsername**](doc/UsersApi.md#findonebyusername) | **GET** /users/username/{username} | 
 [*UsersApi*](doc/UsersApi.md) | [**findOneIncludeAllByFirebaseUid**](doc/UsersApi.md#findoneincludeallbyfirebaseuid) | **GET** /users/fireUID/{id}/include-all | 
+[*UsersApi*](doc/UsersApi.md) | [**getMe**](doc/UsersApi.md#getme) | **GET** /users/me | 
 [*UsersApi*](doc/UsersApi.md) | [**getVCard**](doc/UsersApi.md#getvcard) | **GET** /users/{id}/vcard | 
 [*UsersApi*](doc/UsersApi.md) | [**isUsernameAvailable**](doc/UsersApi.md#isusernameavailable) | **POST** /users/username-available | 
 [*UsersApi*](doc/UsersApi.md) | [**migrate**](doc/UsersApi.md#migrate) | **POST** /users/migrate/{token} | 
-[*UsersApi*](doc/UsersApi.md) | [**report**](doc/UsersApi.md#report) | **POST** /users/{id}/flag-report | 
-[*UsersApi*](doc/UsersApi.md) | [**test**](doc/UsersApi.md#test) | **GET** /users/test | 
+[*UsersApi*](doc/UsersApi.md) | [**report**](doc/UsersApi.md#report) | **POST** /users/{uid}/flag-report | 
 [*UsersApi*](doc/UsersApi.md) | [**update**](doc/UsersApi.md#update) | **PATCH** /users/{id} | 
 [*UsersApi*](doc/UsersApi.md) | [**updateTag**](doc/UsersApi.md#updatetag) | **PATCH** /users/{id}/tags | 
 
@@ -148,24 +174,31 @@ Class | Method | HTTP request | Description
  - [AddCustomAppsCategoryDto](doc/AddCustomAppsCategoryDto.md)
  - [AddLinkDto](doc/AddLinkDto.md)
  - [AddLinksCategoryDto](doc/AddLinksCategoryDto.md)
+ - [BusinessDetails](doc/BusinessDetails.md)
  - [CategoryId](doc/CategoryId.md)
  - [Connection](doc/Connection.md)
  - [ControlledValue](doc/ControlledValue.md)
+ - [CreateDistributorDto](doc/CreateDistributorDto.md)
+ - [CreateEnterpriseDto](doc/CreateEnterpriseDto.md)
  - [CreateEventDto](doc/CreateEventDto.md)
  - [CreateProductDto](doc/CreateProductDto.md)
+ - [CreateProfileDto](doc/CreateProfileDto.md)
  - [CreateTagDto](doc/CreateTagDto.md)
  - [CreateUserDto](doc/CreateUserDto.md)
+ - [Distributor](doc/Distributor.md)
+ - [DistributorsControllerConfirmPayment201Response](doc/DistributorsControllerConfirmPayment201Response.md)
  - [EditCustomAppDto](doc/EditCustomAppDto.md)
  - [EditCustomAppsCategoryDto](doc/EditCustomAppsCategoryDto.md)
  - [EditLinkDto](doc/EditLinkDto.md)
  - [EditLinksCategoryDto](doc/EditLinksCategoryDto.md)
+ - [Enterprise](doc/Enterprise.md)
+ - [EnterpriseAccess](doc/EnterpriseAccess.md)
  - [Event](doc/Event.md)
  - [EventAttendance](doc/EventAttendance.md)
  - [EventOrganizer](doc/EventOrganizer.md)
  - [FindAllEventsDto](doc/FindAllEventsDto.md)
- - [FindAllEventsDtoCreatorID](doc/FindAllEventsDtoCreatorID.md)
- - [FindAllEventsDtoDate](doc/FindAllEventsDtoDate.md)
  - [FlagReportState](doc/FlagReportState.md)
+ - [GenerateExternalQrDto](doc/GenerateExternalQrDto.md)
  - [GeoPoint](doc/GeoPoint.md)
  - [GetUserConnectionsDto](doc/GetUserConnectionsDto.md)
  - [IsUsernameAvailableDto](doc/IsUsernameAvailableDto.md)
@@ -173,18 +206,22 @@ Class | Method | HTTP request | Description
  - [Link](doc/Link.md)
  - [LinkCategory](doc/LinkCategory.md)
  - [LinkProductDto](doc/LinkProductDto.md)
- - [PrismaDateTimeNullableFilter](doc/PrismaDateTimeNullableFilter.md)
- - [PrismaNestedDateTimeNullableFilter](doc/PrismaNestedDateTimeNullableFilter.md)
- - [PrismaNestedDateTimeNullableFilterNot](doc/PrismaNestedDateTimeNullableFilterNot.md)
- - [PrismaNestedStringFilter](doc/PrismaNestedStringFilter.md)
- - [PrismaNestedStringFilterNot](doc/PrismaNestedStringFilterNot.md)
- - [PrismaStringFilter](doc/PrismaStringFilter.md)
- - [PrismaStringNullableListFilter](doc/PrismaStringNullableListFilter.md)
+ - [MetaField](doc/MetaField.md)
+ - [MetaFieldDeclaration](doc/MetaFieldDeclaration.md)
+ - [PartialCreateUserDto](doc/PartialCreateUserDto.md)
+ - [PaymentEntity](doc/PaymentEntity.md)
+ - [PrismaConnect](doc/PrismaConnect.md)
  - [Product](doc/Product.md)
+ - [QR](doc/QR.md)
  - [ReportUserDto](doc/ReportUserDto.md)
+ - [SubscriptionEntity](doc/SubscriptionEntity.md)
+ - [UpdateDistributorDto](doc/UpdateDistributorDto.md)
+ - [UpdateEnterpriseDto](doc/UpdateEnterpriseDto.md)
+ - [UpdateResult](doc/UpdateResult.md)
  - [UpdateTagDto](doc/UpdateTagDto.md)
  - [UpdateUserDto](doc/UpdateUserDto.md)
  - [User](doc/User.md)
+ - [UserType](doc/UserType.md)
  - [UsersControllerAddFcmTokenRequest](doc/UsersControllerAddFcmTokenRequest.md)
  - [UsersControllerGetVCardDefaultResponse](doc/UsersControllerGetVCardDefaultResponse.md)
  - [WorkInfo](doc/WorkInfo.md)

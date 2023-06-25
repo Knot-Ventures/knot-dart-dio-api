@@ -17,20 +17,24 @@ Method | HTTP request | Description
 
 
 # **addLink**
-> addLink(uid, addLinkDto)
+> UpdateResult addLink(uid, addLinkDto)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserLinksApi();
 final String uid = uid_example; // String | 
 final AddLinkDto addLinkDto = ; // AddLinkDto | 
 
 try {
-    api.addLink(uid, addLinkDto);
+    final response = api.addLink(uid, addLinkDto);
+    print(response);
 } catch on DioError (e) {
     print('Exception when calling UserLinksApi->addLink: $e\n');
 }
@@ -45,16 +49,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**UpdateResult**](UpdateResult.md)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -66,6 +70,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserLinksApi();
 final String uid = uid_example; // String | 
@@ -93,7 +100,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -110,6 +117,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserLinksApi();
 final String uid = uid_example; // String | 
@@ -137,7 +147,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -147,20 +157,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **editLink**
-> editLink(uid, editLinkDto)
+> UpdateResult editLink(uid, editLinkDto)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserLinksApi();
 final String uid = uid_example; // String | 
 final EditLinkDto editLinkDto = ; // EditLinkDto | 
 
 try {
-    api.editLink(uid, editLinkDto);
+    final response = api.editLink(uid, editLinkDto);
+    print(response);
 } catch on DioError (e) {
     print('Exception when calling UserLinksApi->editLink: $e\n');
 }
@@ -175,16 +189,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**UpdateResult**](UpdateResult.md)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -196,6 +210,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserLinksApi();
 final String uid = uid_example; // String | 
@@ -223,7 +240,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

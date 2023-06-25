@@ -3,6 +3,12 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:knotapi/src/model/business_details.dart';
+import 'package:knotapi/src/model/distributor.dart';
+import 'package:knotapi/src/model/enterprise.dart';
+import 'package:knotapi/src/model/enterprise_access.dart';
+import 'package:knotapi/src/model/user_type.dart';
+import 'package:knotapi/src/model/meta_field.dart';
 import 'package:knotapi/src/model/product.dart';
 import 'package:knotapi/src/model/link_category.dart';
 import 'package:knotapi/src/model/connection.dart';
@@ -62,6 +68,10 @@ class User {
 
      this.birthday,
 
+     this.address,
+
+     this.businessDetails,
+
      this.links,
 
      this.linksCategories,
@@ -75,6 +85,30 @@ class User {
      this.userAccentColor,
 
      this.documentVersion,
+
+     this.enterpriseId,
+
+     this.enterprise,
+
+     this.enterpriseAccess,
+
+     this.directLink,
+
+     this.directLinkEnabled,
+
+     this.lockedProperties,
+
+     this.userPrefs,
+
+     this.extraFields,
+
+     this.createdById,
+
+     this.createdByCollection,
+
+     this.distributorId,
+
+     this.distributor,
   });
 
   @JsonKey(
@@ -289,7 +323,7 @@ class User {
   )
 
 
-  final String? userType;
+  final UserType? userType;
 
 
 
@@ -302,6 +336,30 @@ class User {
 
 
   final DateTime? birthday;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'businessDetails',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final BusinessDetails? businessDetails;
 
 
 
@@ -389,6 +447,150 @@ class User {
 
 
 
+  @JsonKey(
+    
+    name: r'enterpriseId',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? enterpriseId;
+
+
+
+  @JsonKey(
+    
+    name: r'enterprise',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Enterprise? enterprise;
+
+
+
+  @JsonKey(
+    
+    name: r'enterpriseAccess',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final EnterpriseAccess? enterpriseAccess;
+
+
+
+  @JsonKey(
+    
+    name: r'directLink',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? directLink;
+
+
+
+  @JsonKey(
+    
+    name: r'directLinkEnabled',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final bool? directLinkEnabled;
+
+
+
+  @JsonKey(
+    
+    name: r'lockedProperties',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final List<String>? lockedProperties;
+
+
+
+  @JsonKey(
+    
+    name: r'userPrefs',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? userPrefs;
+
+
+
+  @JsonKey(
+    
+    name: r'extraFields',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Map<String, MetaField>? extraFields;
+
+
+
+  @JsonKey(
+    
+    name: r'createdById',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? createdById;
+
+
+
+  @JsonKey(
+    
+    name: r'createdByCollection',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? createdByCollection;
+
+
+
+  @JsonKey(
+    
+    name: r'distributorId',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? distributorId;
+
+
+
+  @JsonKey(
+    
+    name: r'distributor',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Distributor? distributor;
+
+
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is User &&
      other.title == title &&
@@ -410,13 +612,27 @@ class User {
      other.phones == phones &&
      other.userType == userType &&
      other.birthday == birthday &&
+     other.address == address &&
+     other.businessDetails == businessDetails &&
      other.links == links &&
      other.linksCategories == linksCategories &&
      other.tags == tags &&
      other.fcmTokens == fcmTokens &&
      other.workInfo == workInfo &&
      other.userAccentColor == userAccentColor &&
-     other.documentVersion == documentVersion;
+     other.documentVersion == documentVersion &&
+     other.enterpriseId == enterpriseId &&
+     other.enterprise == enterprise &&
+     other.enterpriseAccess == enterpriseAccess &&
+     other.directLink == directLink &&
+     other.directLinkEnabled == directLinkEnabled &&
+     other.lockedProperties == lockedProperties &&
+     other.userPrefs == userPrefs &&
+     other.extraFields == extraFields &&
+     other.createdById == createdById &&
+     other.createdByCollection == createdByCollection &&
+     other.distributorId == distributorId &&
+     other.distributor == distributor;
 
   @override
   int get hashCode =>
@@ -439,13 +655,27 @@ class User {
     phones.hashCode +
     userType.hashCode +
     birthday.hashCode +
+    address.hashCode +
+    businessDetails.hashCode +
     links.hashCode +
     linksCategories.hashCode +
     tags.hashCode +
     fcmTokens.hashCode +
     workInfo.hashCode +
     userAccentColor.hashCode +
-    documentVersion.hashCode;
+    documentVersion.hashCode +
+    enterpriseId.hashCode +
+    enterprise.hashCode +
+    enterpriseAccess.hashCode +
+    directLink.hashCode +
+    directLinkEnabled.hashCode +
+    lockedProperties.hashCode +
+    userPrefs.hashCode +
+    extraFields.hashCode +
+    createdById.hashCode +
+    createdByCollection.hashCode +
+    distributorId.hashCode +
+    distributor.hashCode;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

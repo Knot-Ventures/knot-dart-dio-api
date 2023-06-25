@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:knotapi/src/model/business_details.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'create_user_dto.g.dart';
@@ -33,6 +34,16 @@ class CreateUserDto {
      this.userType,
 
      this.birthday,
+
+     this.businessDetails,
+
+     this.bio,
+
+     this.address,
+
+     this.createdById,
+
+     this.createdByCollection,
   });
 
   @JsonKey(
@@ -131,6 +142,66 @@ class CreateUserDto {
 
 
 
+  @JsonKey(
+    
+    name: r'businessDetails',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final BusinessDetails? businessDetails;
+
+
+
+  @JsonKey(
+    
+    name: r'bio',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? bio;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'createdById',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? createdById;
+
+
+
+  @JsonKey(
+    
+    name: r'createdByCollection',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? createdByCollection;
+
+
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is CreateUserDto &&
      other.id == id &&
@@ -140,7 +211,12 @@ class CreateUserDto {
      other.phone == phone &&
      other.fullName == fullName &&
      other.userType == userType &&
-     other.birthday == birthday;
+     other.birthday == birthday &&
+     other.businessDetails == businessDetails &&
+     other.bio == bio &&
+     other.address == address &&
+     other.createdById == createdById &&
+     other.createdByCollection == createdByCollection;
 
   @override
   int get hashCode =>
@@ -151,7 +227,12 @@ class CreateUserDto {
     phone.hashCode +
     fullName.hashCode +
     userType.hashCode +
-    birthday.hashCode;
+    birthday.hashCode +
+    businessDetails.hashCode +
+    bio.hashCode +
+    address.hashCode +
+    createdById.hashCode +
+    createdByCollection.hashCode;
 
   factory CreateUserDto.fromJson(Map<String, dynamic> json) => _$CreateUserDtoFromJson(json);
 
@@ -174,6 +255,10 @@ enum CreateUserDtoUserTypeEnum {
   CUSTOMER_SERVICE,
   @JsonValue(r'EVENT_ORGANIZER')
   EVENT_ORGANIZER,
+  @JsonValue(r'BUSINESS_OWNER')
+  BUSINESS_OWNER,
+  @JsonValue(r'DISTRIBUTOR')
+  DISTRIBUTOR,
 }
 
 

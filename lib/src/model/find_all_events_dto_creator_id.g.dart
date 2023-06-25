@@ -14,16 +14,10 @@ FindAllEventsDtoCreatorID _$FindAllEventsDtoCreatorIDFromJson(
       ($checkedConvert) {
         final val = FindAllEventsDtoCreatorID(
           equals: $checkedConvert('equals', (v) => v as String?),
-          in_: $checkedConvert(
-              'in',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
-          notIn: $checkedConvert(
-              'notIn',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
+          in_: $checkedConvert('in',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          notIn: $checkedConvert('notIn',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           lt: $checkedConvert('lt', (v) => v as String?),
           lte: $checkedConvert('lte', (v) => v as String?),
           gt: $checkedConvert('gt', (v) => v as String?),

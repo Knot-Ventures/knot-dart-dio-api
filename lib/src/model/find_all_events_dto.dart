@@ -3,10 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:knotapi/src/model/prisma_string_nullable_list_filter.dart';
-import 'package:knotapi/src/model/prisma_string_filter.dart';
-import 'package:knotapi/src/model/find_all_events_dto_creator_id.dart';
-import 'package:knotapi/src/model/find_all_events_dto_date.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'find_all_events_dto.g.dart';
@@ -43,7 +39,7 @@ class FindAllEventsDto {
   )
 
 
-  final FindAllEventsDtoDate? date;
+  final DateTime? date;
 
 
 
@@ -67,7 +63,7 @@ class FindAllEventsDto {
   )
 
 
-  final FindAllEventsDtoCreatorID? creatorID;
+  final String? creatorID;
 
 
 
@@ -91,7 +87,7 @@ class FindAllEventsDto {
   )
 
 
-  final PrismaStringNullableListFilter? tags;
+  final Object? tags;
 
 
 
@@ -103,7 +99,7 @@ class FindAllEventsDto {
   )
 
 
-  final PrismaStringFilter? category;
+  final Object? category;
 
 
 

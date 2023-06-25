@@ -21,6 +21,9 @@ Method | HTTP request | Description
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserProductsApi();
 final String uid = uid_example; // String | 
@@ -47,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -64,6 +67,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUserProductsApi();
 final String uid = uid_example; // String | 
@@ -89,7 +95,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

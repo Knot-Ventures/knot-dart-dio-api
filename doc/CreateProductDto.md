@@ -9,7 +9,8 @@ import 'package:knotapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **String** |  | 
-**qrUuid** | **String** |  | 
+**qrUuid** | **String** |  | [optional] 
+**forKnot** | **bool** |  | 
 **type** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

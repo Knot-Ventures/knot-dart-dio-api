@@ -13,22 +13,13 @@ PrismaStringNullableListFilter _$PrismaStringNullableListFilterFromJson(
       json,
       ($checkedConvert) {
         final val = PrismaStringNullableListFilter(
-          equals: $checkedConvert(
-              'equals',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
+          equals: $checkedConvert('equals',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           has: $checkedConvert('has', (v) => v as String?),
-          hasEvery: $checkedConvert(
-              'hasEvery',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
-          hasSome: $checkedConvert(
-              'hasSome',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
+          hasEvery: $checkedConvert('hasEvery',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          hasSome: $checkedConvert('hasSome',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           isEmpty: $checkedConvert('isEmpty', (v) => v as bool?),
         );
         return val;

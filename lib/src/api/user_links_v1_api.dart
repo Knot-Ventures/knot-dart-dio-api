@@ -12,6 +12,7 @@ import 'package:dio/dio.dart';
 import 'package:knotapi/src/model/add_link_dto.dart';
 import 'package:knotapi/src/model/category_id.dart';
 import 'package:knotapi/src/model/edit_link_dto.dart';
+import 'package:knotapi/src/model/link.dart';
 
 class UserLinksV1Api {
 
@@ -32,9 +33,9 @@ class UserLinksV1Api {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [Link] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addLink({ 
+  Future<Response<Link>> addLink({ 
     required String uid,
     required AddLinkDto addLinkDto,
     CancelToken? cancelToken,
@@ -83,7 +84,30 @@ _bodyData=jsonEncode(addLinkDto);
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
+    Link _responseData;
+
+    try {
+_responseData = deserialize<Link, Link>(_response.data!, 'Link', growable: true);
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<Link>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
   }
 
   /// deleteLink

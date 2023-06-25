@@ -8,10 +8,10 @@ import 'package:knotapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**equals** | [**List&lt;List&gt;**](List.md) |  | [optional] 
+**equals** | **List&lt;String&gt;** |  | [optional] 
 **has** | **String** |  | [optional] 
-**hasEvery** | [**List&lt;List&gt;**](List.md) |  | [optional] 
-**hasSome** | [**List&lt;List&gt;**](List.md) |  | [optional] 
+**hasEvery** | **List&lt;String&gt;** |  | [optional] 
+**hasSome** | **List&lt;String&gt;** |  | [optional] 
 **isEmpty** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

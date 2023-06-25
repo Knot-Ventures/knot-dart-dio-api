@@ -158,7 +158,7 @@ class Event {
   )
 
 
-  final List<List>? tags;
+  final List<String>? tags;
 
 
 

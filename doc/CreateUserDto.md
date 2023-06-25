@@ -16,6 +16,11 @@ Name | Type | Description | Notes
 **fullName** | **String** |  | [optional] 
 **userType** | **String** |  | [optional] 
 **birthday** | [**DateTime**](DateTime.md) |  | [optional] 
+**businessDetails** | [**BusinessDetails**](BusinessDetails.md) |  | [optional] 
+**bio** | **String** |  | [optional] 
+**address** | **String** |  | [optional] 
+**createdById** | **String** |  | [optional] 
+**createdByCollection** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

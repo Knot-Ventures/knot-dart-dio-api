@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **activated** | **bool** |  | [optional] 
 **duration** | **num** |  | [optional] 
 **isFeatured** | **bool** |  | [optional] 
-**tags** | [**List&lt;List&gt;**](List.md) |  | [optional] 
+**tags** | **List&lt;String&gt;** |  | [optional] 
 **category** | **String** |  | [optional] 
 **eventUrl** | **String** |  | [optional] 
 **location** | [**GeoPoint**](GeoPoint.md) |  | [optional] 

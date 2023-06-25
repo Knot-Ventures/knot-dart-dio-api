@@ -26,11 +26,8 @@ CreateEventDto _$CreateEventDtoFromJson(Map<String, dynamic> json) =>
           activated: $checkedConvert('activated', (v) => v as bool?),
           duration: $checkedConvert('duration', (v) => v as num?),
           isFeatured: $checkedConvert('isFeatured', (v) => v as bool?),
-          tags: $checkedConvert(
-              'tags',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           category: $checkedConvert('category', (v) => v as String?),
           eventUrl: $checkedConvert('eventUrl', (v) => v as String?),
           location: $checkedConvert(

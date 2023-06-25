@@ -24,11 +24,8 @@ Event _$EventFromJson(Map<String, dynamic> json) => $checkedCreate(
                   ? null
                   : EventOrganizer.fromJson(v as Map<String, dynamic>)),
           isFeatured: $checkedConvert('isFeatured', (v) => v as bool?),
-          tags: $checkedConvert(
-              'tags',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => e as List<dynamic>)
-                  .toList()),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           category: $checkedConvert('category', (v) => v as String?),
           duration: $checkedConvert('duration', (v) => v as num?),
           eventUrl: $checkedConvert('eventUrl', (v) => v as String?),

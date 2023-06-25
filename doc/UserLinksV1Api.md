@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **addLink**
-> addLink(uid, addLinkDto)
+> Link addLink(uid, addLinkDto)
 
 
 
@@ -30,7 +30,8 @@ final String uid = uid_example; // String |
 final AddLinkDto addLinkDto = ; // AddLinkDto | 
 
 try {
-    api.addLink(uid, addLinkDto);
+    final response = api.addLink(uid, addLinkDto);
+    print(response);
 } catch on DioError (e) {
     print('Exception when calling UserLinksV1Api->addLink: $e\n');
 }
@@ -45,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Link**](Link.md)
 
 ### Authorization
 
@@ -54,7 +55,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

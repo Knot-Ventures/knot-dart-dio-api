@@ -62,7 +62,7 @@ class PrismaStringFilter {
   )
 
 
-  final List<List>? in_;
+  final List<String>? in_;
 
 
 
@@ -74,7 +74,7 @@ class PrismaStringFilter {
   )
 
 
-  final List<List>? notIn;
+  final List<String>? notIn;
 
 
 

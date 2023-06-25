@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:knotapi/src/model/business_details.dart';
+import 'package:knotapi/src/model/meta_field.dart';
 import 'package:knotapi/src/model/work_info.dart';
 import 'package:knotapi/src/model/controlled_value.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -51,6 +53,20 @@ class UpdateUserDto {
      this.workInfo,
 
      this.userAccentColor,
+
+     this.businessDetails,
+
+     this.address,
+
+     this.directLink,
+
+     this.directLinkEnabled,
+
+     this.lockedProperties,
+
+     this.extraFields,
+
+     this.userPrefs,
   });
 
   @JsonKey(
@@ -245,6 +261,90 @@ class UpdateUserDto {
 
 
 
+  @JsonKey(
+    
+    name: r'businessDetails',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final BusinessDetails? businessDetails;
+
+
+
+  @JsonKey(
+    
+    name: r'address',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? address;
+
+
+
+  @JsonKey(
+    
+    name: r'directLink',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? directLink;
+
+
+
+  @JsonKey(
+    
+    name: r'directLinkEnabled',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final bool? directLinkEnabled;
+
+
+
+  @JsonKey(
+    
+    name: r'lockedProperties',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final List<String>? lockedProperties;
+
+
+
+  @JsonKey(
+    
+    name: r'extraFields',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Map<String, MetaField>? extraFields;
+
+
+
+  @JsonKey(
+    
+    name: r'userPrefs',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? userPrefs;
+
+
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is UpdateUserDto &&
      other.createdAt == createdAt &&
@@ -262,7 +362,14 @@ class UpdateUserDto {
      other.userType == userType &&
      other.birthday == birthday &&
      other.workInfo == workInfo &&
-     other.userAccentColor == userAccentColor;
+     other.userAccentColor == userAccentColor &&
+     other.businessDetails == businessDetails &&
+     other.address == address &&
+     other.directLink == directLink &&
+     other.directLinkEnabled == directLinkEnabled &&
+     other.lockedProperties == lockedProperties &&
+     other.extraFields == extraFields &&
+     other.userPrefs == userPrefs;
 
   @override
   int get hashCode =>
@@ -281,7 +388,14 @@ class UpdateUserDto {
     userType.hashCode +
     birthday.hashCode +
     workInfo.hashCode +
-    userAccentColor.hashCode;
+    userAccentColor.hashCode +
+    businessDetails.hashCode +
+    address.hashCode +
+    directLink.hashCode +
+    directLinkEnabled.hashCode +
+    lockedProperties.hashCode +
+    extraFields.hashCode +
+    userPrefs.hashCode;
 
   factory UpdateUserDto.fromJson(Map<String, dynamic> json) => _$UpdateUserDtoFromJson(json);
 
@@ -304,6 +418,10 @@ enum UpdateUserDtoUserTypeEnum {
   CUSTOMER_SERVICE,
   @JsonValue(r'EVENT_ORGANIZER')
   EVENT_ORGANIZER,
+  @JsonValue(r'BUSINESS_OWNER')
+  BUSINESS_OWNER,
+  @JsonValue(r'DISTRIBUTOR')
+  DISTRIBUTOR,
 }
 
 

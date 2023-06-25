@@ -20,11 +20,11 @@ Method | HTTP request | Description
 [**findOneByFirebaseUid**](UsersApi.md#findonebyfirebaseuid) | **GET** /users/fireUID/{id} | 
 [**findOneByUsername**](UsersApi.md#findonebyusername) | **GET** /users/username/{username} | 
 [**findOneIncludeAllByFirebaseUid**](UsersApi.md#findoneincludeallbyfirebaseuid) | **GET** /users/fireUID/{id}/include-all | 
+[**getMe**](UsersApi.md#getme) | **GET** /users/me | 
 [**getVCard**](UsersApi.md#getvcard) | **GET** /users/{id}/vcard | 
 [**isUsernameAvailable**](UsersApi.md#isusernameavailable) | **POST** /users/username-available | 
 [**migrate**](UsersApi.md#migrate) | **POST** /users/migrate/{token} | 
-[**report**](UsersApi.md#report) | **POST** /users/{id}/flag-report | 
-[**test**](UsersApi.md#test) | **GET** /users/test | 
+[**report**](UsersApi.md#report) | **POST** /users/{uid}/flag-report | 
 [**update**](UsersApi.md#update) | **PATCH** /users/{id} | 
 [**updateTag**](UsersApi.md#updatetag) | **PATCH** /users/{id}/tags | 
 
@@ -37,6 +37,9 @@ Method | HTTP request | Description
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -62,7 +65,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -79,6 +82,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -104,7 +110,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -121,6 +127,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final CreateUserDto createUserDto = ; // CreateUserDto | 
@@ -145,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -162,6 +171,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -187,7 +199,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -204,6 +216,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String uid = uid_example; // String | 
@@ -227,7 +242,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -244,6 +259,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -269,7 +287,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -286,6 +304,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 
@@ -306,7 +327,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -316,19 +337,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **findOne**
-> User findOne(id)
+> User findOne(id, include)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
+final String include = include_example; // String | 
 
 try {
-    final response = api.findOne(id);
+    final response = api.findOne(id, include);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling UsersApi->findOne: $e\n');
@@ -340,6 +365,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
+ **include** | **String**|  | [optional] 
 
 ### Return type
 
@@ -347,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -357,19 +383,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **findOneByFirebaseUid**
-> User findOneByFirebaseUid(id)
+> User findOneByFirebaseUid(id, include)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
+final String include = include_example; // String | 
 
 try {
-    final response = api.findOneByFirebaseUid(id);
+    final response = api.findOneByFirebaseUid(id, include);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling UsersApi->findOneByFirebaseUid: $e\n');
@@ -381,6 +411,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
+ **include** | **String**|  | [optional] 
 
 ### Return type
 
@@ -388,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -405,6 +436,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String username = username_example; // String | 
@@ -429,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -446,6 +480,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -470,7 +507,51 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getMe**
+> User getMe(include)
+
+
+
+### Example
+```dart
+import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
+
+final api = Knotapi().getUsersApi();
+final String include = include_example; // String | 
+
+try {
+    final response = api.getMe(include);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling UsersApi->getMe: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include** | **String**|  | [optional] 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -487,6 +568,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -513,7 +597,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -530,6 +614,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final IsUsernameAvailableDto isUsernameAvailableDto = ; // IsUsernameAvailableDto | 
@@ -554,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -564,25 +651,32 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **migrate**
-> migrate()
+> migrate(token)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
+final String token = token_example; // String | 
 
 try {
-    api.migrate();
+    api.migrate(token);
 } catch on DioError (e) {
     print('Exception when calling UsersApi->migrate: $e\n');
 }
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token** | **String**|  | 
 
 ### Return type
 
@@ -590,7 +684,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -600,20 +694,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **report**
-> report(id, reportUserDto)
+> report(uid, reportUserDto)
 
 
 
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
-final String id = id_example; // String | 
+final String uid = uid_example; // String | 
 final ReportUserDto reportUserDto = ; // ReportUserDto | 
 
 try {
-    api.report(id, reportUserDto);
+    api.report(uid, reportUserDto);
 } catch on DioError (e) {
     print('Exception when calling UsersApi->report: $e\n');
 }
@@ -623,7 +720,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
+ **uid** | **String**|  | 
  **reportUserDto** | [**ReportUserDto**](ReportUserDto.md)|  | 
 
 ### Return type
@@ -632,47 +729,11 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **test**
-> test()
-
-
-
-### Example
-```dart
-import 'package:knotapi/api.dart';
-
-final api = Knotapi().getUsersApi();
-
-try {
-    api.test();
-} catch on DioError (e) {
-    print('Exception when calling UsersApi->test: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -685,6 +746,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -711,7 +775,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 
@@ -728,6 +792,9 @@ No authorization required
 ### Example
 ```dart
 import 'package:knotapi/api.dart';
+// TODO Configure HTTP basic authorization: bearer
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('bearer').password = 'YOUR_PASSWORD';
 
 final api = Knotapi().getUsersApi();
 final String id = id_example; // String | 
@@ -753,7 +820,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

@@ -164,7 +164,7 @@ class CreateEventDto {
   )
 
 
-  final List<List>? tags;
+  final List<String>? tags;
 
 
 

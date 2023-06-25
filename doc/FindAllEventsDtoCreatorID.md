@@ -9,8 +9,8 @@ import 'package:knotapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **equals** | **String** |  | [optional] 
-**in_** | [**List&lt;List&gt;**](List.md) |  | [optional] 
-**notIn** | [**List&lt;List&gt;**](List.md) |  | [optional] 
+**in_** | **List&lt;String&gt;** |  | [optional] 
+**notIn** | **List&lt;String&gt;** |  | [optional] 
 **lt** | **String** |  | [optional] 
 **lte** | **String** |  | [optional] 
 **gt** | **String** |  | [optional] 

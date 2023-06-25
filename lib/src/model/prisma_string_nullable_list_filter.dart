@@ -37,7 +37,7 @@ class PrismaStringNullableListFilter {
   )
 
 
-  final List<List>? equals;
+  final List<String>? equals;
 
 
 
@@ -61,7 +61,7 @@ class PrismaStringNullableListFilter {
   )
 
 
-  final List<List>? hasEvery;
+  final List<String>? hasEvery;
 
 
 
@@ -73,7 +73,7 @@ class PrismaStringNullableListFilter {
   )
 
 
-  final List<List>? hasSome;
+  final List<String>? hasSome;
 
 
 

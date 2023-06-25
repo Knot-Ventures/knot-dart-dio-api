@@ -12,6 +12,7 @@ import 'package:dio/dio.dart';
 import 'package:knotapi/src/model/add_link_dto.dart';
 import 'package:knotapi/src/model/category_id.dart';
 import 'package:knotapi/src/model/edit_link_dto.dart';
+import 'package:knotapi/src/model/update_result.dart';
 
 class UserLinksApi {
 
@@ -32,9 +33,9 @@ class UserLinksApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [UpdateResult] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addLink({ 
+  Future<Response<UpdateResult>> addLink({ 
     required String uid,
     required AddLinkDto addLinkDto,
     CancelToken? cancelToken,
@@ -51,7 +52,13 @@ class UserLinksApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearer',
+          },
+        ],
         ...?extra,
       },
       contentType: 'application/json',
@@ -83,7 +90,30 @@ _bodyData=jsonEncode(addLinkDto);
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
+    UpdateResult _responseData;
+
+    try {
+_responseData = deserialize<UpdateResult, UpdateResult>(_response.data!, 'UpdateResult', growable: true);
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<UpdateResult>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
   }
 
   /// deleteLink
@@ -120,7 +150,13 @@ _bodyData=jsonEncode(addLinkDto);
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearer',
+          },
+        ],
         ...?extra,
       },
       contentType: 'application/json',
@@ -189,7 +225,13 @@ _bodyData=jsonEncode(categoryId);
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearer',
+          },
+        ],
         ...?extra,
       },
       contentType: 'application/json',
@@ -237,9 +279,9 @@ _bodyData=jsonEncode(categoryId);
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [UpdateResult] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> editLink({ 
+  Future<Response<UpdateResult>> editLink({ 
     required String uid,
     required EditLinkDto editLinkDto,
     CancelToken? cancelToken,
@@ -256,7 +298,13 @@ _bodyData=jsonEncode(categoryId);
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearer',
+          },
+        ],
         ...?extra,
       },
       contentType: 'application/json',
@@ -288,7 +336,30 @@ _bodyData=jsonEncode(editLinkDto);
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
+    UpdateResult _responseData;
+
+    try {
+_responseData = deserialize<UpdateResult, UpdateResult>(_response.data!, 'UpdateResult', growable: true);
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<UpdateResult>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
   }
 
   /// enableLink
@@ -325,7 +396,13 @@ _bodyData=jsonEncode(editLinkDto);
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'bearer',
+          },
+        ],
         ...?extra,
       },
       contentType: 'application/json',

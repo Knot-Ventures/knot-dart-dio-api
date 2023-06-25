@@ -3,23 +3,30 @@ import 'package:knotapi/src/model/add_custom_app_dto.dart';
 import 'package:knotapi/src/model/add_custom_apps_category_dto.dart';
 import 'package:knotapi/src/model/add_link_dto.dart';
 import 'package:knotapi/src/model/add_links_category_dto.dart';
+import 'package:knotapi/src/model/business_details.dart';
 import 'package:knotapi/src/model/category_id.dart';
 import 'package:knotapi/src/model/connection.dart';
 import 'package:knotapi/src/model/controlled_value.dart';
+import 'package:knotapi/src/model/create_distributor_dto.dart';
+import 'package:knotapi/src/model/create_enterprise_dto.dart';
 import 'package:knotapi/src/model/create_event_dto.dart';
 import 'package:knotapi/src/model/create_product_dto.dart';
+import 'package:knotapi/src/model/create_profile_dto.dart';
 import 'package:knotapi/src/model/create_tag_dto.dart';
 import 'package:knotapi/src/model/create_user_dto.dart';
+import 'package:knotapi/src/model/distributor.dart';
+import 'package:knotapi/src/model/distributors_controller_confirm_payment201_response.dart';
 import 'package:knotapi/src/model/edit_custom_app_dto.dart';
 import 'package:knotapi/src/model/edit_custom_apps_category_dto.dart';
 import 'package:knotapi/src/model/edit_link_dto.dart';
 import 'package:knotapi/src/model/edit_links_category_dto.dart';
+import 'package:knotapi/src/model/enterprise.dart';
+import 'package:knotapi/src/model/enterprise_access.dart';
 import 'package:knotapi/src/model/event.dart';
 import 'package:knotapi/src/model/event_attendance.dart';
 import 'package:knotapi/src/model/event_organizer.dart';
 import 'package:knotapi/src/model/find_all_events_dto.dart';
-import 'package:knotapi/src/model/find_all_events_dto_creator_id.dart';
-import 'package:knotapi/src/model/find_all_events_dto_date.dart';
+import 'package:knotapi/src/model/generate_external_qr_dto.dart';
 import 'package:knotapi/src/model/geo_point.dart';
 import 'package:knotapi/src/model/get_user_connections_dto.dart';
 import 'package:knotapi/src/model/is_username_available_dto.dart';
@@ -27,15 +34,18 @@ import 'package:knotapi/src/model/is_username_available_response.dart';
 import 'package:knotapi/src/model/link.dart';
 import 'package:knotapi/src/model/link_category.dart';
 import 'package:knotapi/src/model/link_product_dto.dart';
-import 'package:knotapi/src/model/prisma_date_time_nullable_filter.dart';
-import 'package:knotapi/src/model/prisma_nested_date_time_nullable_filter.dart';
-import 'package:knotapi/src/model/prisma_nested_date_time_nullable_filter_not.dart';
-import 'package:knotapi/src/model/prisma_nested_string_filter.dart';
-import 'package:knotapi/src/model/prisma_nested_string_filter_not.dart';
-import 'package:knotapi/src/model/prisma_string_filter.dart';
-import 'package:knotapi/src/model/prisma_string_nullable_list_filter.dart';
+import 'package:knotapi/src/model/meta_field.dart';
+import 'package:knotapi/src/model/meta_field_declaration.dart';
+import 'package:knotapi/src/model/partial_create_user_dto.dart';
+import 'package:knotapi/src/model/payment_entity.dart';
+import 'package:knotapi/src/model/prisma_connect.dart';
 import 'package:knotapi/src/model/product.dart';
+import 'package:knotapi/src/model/qr.dart';
 import 'package:knotapi/src/model/report_user_dto.dart';
+import 'package:knotapi/src/model/subscription_entity.dart';
+import 'package:knotapi/src/model/update_distributor_dto.dart';
+import 'package:knotapi/src/model/update_enterprise_dto.dart';
+import 'package:knotapi/src/model/update_result.dart';
 import 'package:knotapi/src/model/update_tag_dto.dart';
 import 'package:knotapi/src/model/update_user_dto.dart';
 import 'package:knotapi/src/model/user.dart';
@@ -71,20 +81,32 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return AddLinkDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'AddLinksCategoryDto':
           return AddLinksCategoryDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'BusinessDetails':
+          return BusinessDetails.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CategoryId':
           return CategoryId.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'Connection':
           return Connection.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'ControlledValue':
           return ControlledValue.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'CreateDistributorDto':
+          return CreateDistributorDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'CreateEnterpriseDto':
+          return CreateEnterpriseDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateEventDto':
           return CreateEventDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateProductDto':
           return CreateProductDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'CreateProfileDto':
+          return CreateProfileDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateTagDto':
           return CreateTagDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'CreateUserDto':
           return CreateUserDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'Distributor':
+          return Distributor.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'DistributorsControllerConfirmPayment201Response':
+          return DistributorsControllerConfirmPayment201Response.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'EditCustomAppDto':
           return EditCustomAppDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'EditCustomAppsCategoryDto':
@@ -93,6 +115,10 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return EditLinkDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'EditLinksCategoryDto':
           return EditLinksCategoryDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'Enterprise':
+          return Enterprise.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'EnterpriseAccess':
+          return EnterpriseAccess.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'Event':
           return Event.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'EventAttendance':
@@ -101,13 +127,11 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return EventOrganizer.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'FindAllEventsDto':
           return FindAllEventsDto.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'FindAllEventsDtoCreatorID':
-          return FindAllEventsDtoCreatorID.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'FindAllEventsDtoDate':
-          return FindAllEventsDtoDate.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'FlagReportState':
           
           
+        case 'GenerateExternalQrDto':
+          return GenerateExternalQrDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'GeoPoint':
           return GeoPoint.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'GetUserConnectionsDto':
@@ -122,30 +146,39 @@ final _regMap = RegExp(r'^Map<String,(.*)>$');
           return LinkCategory.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'LinkProductDto':
           return LinkProductDto.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaDateTimeNullableFilter':
-          return PrismaDateTimeNullableFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaNestedDateTimeNullableFilter':
-          return PrismaNestedDateTimeNullableFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaNestedDateTimeNullableFilterNot':
-          return PrismaNestedDateTimeNullableFilterNot.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaNestedStringFilter':
-          return PrismaNestedStringFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaNestedStringFilterNot':
-          return PrismaNestedStringFilterNot.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaStringFilter':
-          return PrismaStringFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
-        case 'PrismaStringNullableListFilter':
-          return PrismaStringNullableListFilter.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'MetaField':
+          return MetaField.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'MetaFieldDeclaration':
+          return MetaFieldDeclaration.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'PartialCreateUserDto':
+          return PartialCreateUserDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'PaymentEntity':
+          return PaymentEntity.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'PrismaConnect':
+          return PrismaConnect.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'Product':
           return Product.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'QR':
+          return QR.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'ReportUserDto':
           return ReportUserDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'SubscriptionEntity':
+          return SubscriptionEntity.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'UpdateDistributorDto':
+          return UpdateDistributorDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'UpdateEnterpriseDto':
+          return UpdateEnterpriseDto.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'UpdateResult':
+          return UpdateResult.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'UpdateTagDto':
           return UpdateTagDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'UpdateUserDto':
           return UpdateUserDto.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'User':
           return User.fromJson(value as Map<String, dynamic>) as ReturnType;
+        case 'UserType':
+          
+          
         case 'UsersControllerAddFcmTokenRequest':
           return UsersControllerAddFcmTokenRequest.fromJson(value as Map<String, dynamic>) as ReturnType;
         case 'UsersControllerGetVCardDefaultResponse':

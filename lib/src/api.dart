@@ -8,6 +8,8 @@ import 'package:knotapi/src/auth/basic_auth.dart';
 import 'package:knotapi/src/auth/bearer_auth.dart';
 import 'package:knotapi/src/auth/oauth.dart';
 import 'package:knotapi/src/api/default_api.dart';
+import 'package:knotapi/src/api/distributors_api.dart';
+import 'package:knotapi/src/api/enterprises_api.dart';
 import 'package:knotapi/src/api/events_api.dart';
 import 'package:knotapi/src/api/products_api.dart';
 import 'package:knotapi/src/api/user_apps_api.dart';
@@ -73,6 +75,18 @@ class Knotapi {
   /// by doing that all interceptors will not be executed
   DefaultApi getDefaultApi() {
     return DefaultApi(dio);
+  }
+
+  /// Get DistributorsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  DistributorsApi getDistributorsApi() {
+    return DistributorsApi(dio);
+  }
+
+  /// Get EnterprisesApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  EnterprisesApi getEnterprisesApi() {
+    return EnterprisesApi(dio);
   }
 
   /// Get EventsApi instance, base route and serializer can be overridden by a given but be careful,

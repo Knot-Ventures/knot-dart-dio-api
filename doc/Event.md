@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **creatorID** | **String** |  | [optional] 
 **creator** | [**EventOrganizer**](EventOrganizer.md) |  | [optional] 
 **isFeatured** | **bool** |  | [optional] 
-**tags** | [**List&lt;List&gt;**](List.md) |  | [optional] 
+**tags** | **List&lt;String&gt;** |  | [optional] 
 **category** | **String** |  | [optional] 
 **duration** | **num** |  | [optional] 
 **eventUrl** | **String** |  | [optional] 

@@ -29,6 +29,16 @@ CreateUserDto _$CreateUserDtoFromJson(Map<String, dynamic> json) =>
                   $enumDecodeNullable(_$CreateUserDtoUserTypeEnumEnumMap, v)),
           birthday: $checkedConvert('birthday',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          businessDetails: $checkedConvert(
+              'businessDetails',
+              (v) => v == null
+                  ? null
+                  : BusinessDetails.fromJson(v as Map<String, dynamic>)),
+          bio: $checkedConvert('bio', (v) => v as String?),
+          address: $checkedConvert('address', (v) => v as String?),
+          createdById: $checkedConvert('createdById', (v) => v as String?),
+          createdByCollection:
+              $checkedConvert('createdByCollection', (v) => v as String?),
         );
         return val;
       },
@@ -52,6 +62,11 @@ Map<String, dynamic> _$CreateUserDtoToJson(CreateUserDto instance) {
   writeNotNull(
       'userType', _$CreateUserDtoUserTypeEnumEnumMap[instance.userType]);
   writeNotNull('birthday', instance.birthday?.toIso8601String());
+  writeNotNull('businessDetails', instance.businessDetails?.toJson());
+  writeNotNull('bio', instance.bio);
+  writeNotNull('address', instance.address);
+  writeNotNull('createdById', instance.createdById);
+  writeNotNull('createdByCollection', instance.createdByCollection);
   return val;
 }
 
@@ -60,4 +75,6 @@ const _$CreateUserDtoUserTypeEnumEnumMap = {
   CreateUserDtoUserTypeEnum.ADMIN: 'ADMIN',
   CreateUserDtoUserTypeEnum.CUSTOMER_SERVICE: 'CUSTOMER_SERVICE',
   CreateUserDtoUserTypeEnum.EVENT_ORGANIZER: 'EVENT_ORGANIZER',
+  CreateUserDtoUserTypeEnum.BUSINESS_OWNER: 'BUSINESS_OWNER',
+  CreateUserDtoUserTypeEnum.DISTRIBUTOR: 'DISTRIBUTOR',
 };

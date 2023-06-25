@@ -13,29 +13,12 @@ FindAllEventsDto _$FindAllEventsDtoFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = FindAllEventsDto(
           date: $checkedConvert(
-              'date',
-              (v) => v == null
-                  ? null
-                  : FindAllEventsDtoDate.fromJson(v as Map<String, dynamic>)),
+              'date', (v) => v == null ? null : DateTime.parse(v as String)),
           activated: $checkedConvert('activated', (v) => v as bool?),
-          creatorID: $checkedConvert(
-              'creatorID',
-              (v) => v == null
-                  ? null
-                  : FindAllEventsDtoCreatorID.fromJson(
-                      v as Map<String, dynamic>)),
+          creatorID: $checkedConvert('creatorID', (v) => v as String?),
           isFeatured: $checkedConvert('isFeatured', (v) => v as bool?),
-          tags: $checkedConvert(
-              'tags',
-              (v) => v == null
-                  ? null
-                  : PrismaStringNullableListFilter.fromJson(
-                      v as Map<String, dynamic>)),
-          category: $checkedConvert(
-              'category',
-              (v) => v == null
-                  ? null
-                  : PrismaStringFilter.fromJson(v as Map<String, dynamic>)),
+          tags: $checkedConvert('tags', (v) => v),
+          category: $checkedConvert('category', (v) => v),
         );
         return val;
       },
@@ -50,11 +33,11 @@ Map<String, dynamic> _$FindAllEventsDtoToJson(FindAllEventsDto instance) {
     }
   }
 
-  writeNotNull('date', instance.date?.toJson());
+  writeNotNull('date', instance.date?.toIso8601String());
   writeNotNull('activated', instance.activated);
-  writeNotNull('creatorID', instance.creatorID?.toJson());
+  writeNotNull('creatorID', instance.creatorID);
   writeNotNull('isFeatured', instance.isFeatured);
-  writeNotNull('tags', instance.tags?.toJson());
-  writeNotNull('category', instance.category?.toJson());
+  writeNotNull('tags', instance.tags);
+  writeNotNull('category', instance.category);
   return val;
 }
